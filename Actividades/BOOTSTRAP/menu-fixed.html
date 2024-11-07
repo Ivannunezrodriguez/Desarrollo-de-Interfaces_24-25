@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIXED</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .menu {
+
+            top: 0;
+            POSITION: fixed;
+            width: 100%;
+            background: black;
+        }
+
+        .menu a {
+
+            display: block;
+            text-decoration: none;
+            color: beige;
+            padding: 13px 15px;
+            float: left;
+            font-size: 17px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: 2s;
+        }
+
+        .menu a:hover {
+            background: white;
+            color: black;
+        }
+
+        .contenido {
+
+            padding: 20px;
+            margin-top: 25px;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 1em;
+
+
+        }
+
+        .contenido div {
+            background-color: black;
+            padding: 1 em;
+            border-radius: 5px;
+        }
+
+        #publicidad {
+            position: fixed;
+            z-index: 2;
+            top: 30%;
+            background: black;
+            left: 60%;
+            width: 30%;
+            height: 20vh;
+            color: beige;
+            font-size: 30px;
+            font-weight: bold;
+            align-content: center;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 20px;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <a href="#">INICIO</a>
+        <a href="#">OFERTAS</a>
+        <a href="#">RUTAS</a>
+        <a href="#">BLOG</a>
+
+
+    </div>
+    <div id="publicidad">
+        <p onclick="alert('esto es javascript')" onmouseover="this.innerHtml=('friends')"
+            onmouseout="this.innerHTML=('AMIGOS')">AMIGOS</p>
+
+    </div>
+    <div class="contenido">
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dicta, qui doloribus accusantium
+                fugit sed ea vel, tempore sint quam voluptatum nisi hic consequatur. Vero provident assumenda quo
+                voluptatem? Ipsam.</p>
+
+        </div>
+</body>
+
+</html>

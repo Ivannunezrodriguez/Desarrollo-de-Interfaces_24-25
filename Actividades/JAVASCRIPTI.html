@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT I</title>
+
+</head>
+<body onload="console.log('HOLA LA PAGINA SE HA CARGADO!!')">
+
+
+    <!-- COMENTARIO -->
+    <p id="parrafo" onclick="sacartexto()">TEXTO INICIAL</p>
+    <br><br>
+
+    <h3>SUMA DE NUMERO</h3>
+    <input type="number" id="num1"><br>
+    <input type="number" id="num2">
+    <button onclick="sumar()">SUMAR</button>
+
+    <p id="resultado"></p>
+
+    <br><br>
+
+    <h3>VERIFICAR EDAD</h3>
+    <input type="number" id="edad">
+    <button onclick="verificar()">VERIFICACIÓN</button>
+    <p id="salida"></p>
+
+    <script>
+
+        // COMENTARIO
+        /* 
+            MULTILINEA
+        */
+
+        var texto = "Hola";
+        let numero = 100;
+        const iva = 0.21;
+        let array = [];
+        let bool = True;
+        
+
+        console.log(numero + " puntos");
+
+        function sumar(){
+            let a = parseInt(document.getElementById("num1").value);
+            let b = parseInt(document.getElementById("num2").value);
+
+            //console.log(a + " " + b);
+            let suma = a + b;
+            document.getElementById("resultado").innerHTML = "El resultado es: " + suma;
+        }
+
+        function sacartexto() {
+            document.getElementById("parrafo").innerHTML = "ESTO LO PONE JAVASCRIPT";
+        };
+
+        function verificar(){
+            let edades = parseInt(document.getElementById("edad").value);
+
+            if(edades >= 18){
+                document.getElementById("salida").innerHTML = "ERES MAYOR DE EDAD";
+                document.getElementById("salida").style.color = "green";
+            } else {
+                document.getElementById("salida").innerHTML = "ERES MENOR DE EDAD";
+            };
+        }
+
+    </script>
+
+   
+</body>
+</html>

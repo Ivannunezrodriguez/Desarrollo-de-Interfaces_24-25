@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAYS</title>
+</head>
+<body>
+
+    <form>
+        <label>ELEMENTO A COMPRAR</label><br>
+        <input type="text" id="elemento" name="elemento"><br>
+        <button type="button" onclick="agregarElemento()">AÑADIR</button>
+    </form>
+
+    <h3>LISTADO COMPRA</h3>
+    <ul id="listado">
+        <li>peras</li>
+    </ul>
+
+    <script>
+
+        let listaCompra = []; // Array de almacenamiento de elementos
+
+        function agregarElemento(){
+
+            let nuevoElemento = document.getElementById('elemento').value;
+
+            listaCompra.push(nuevoElemento);
+            document.getElementById('elemento').value = "";
+
+            // console.log(listaCompra[0]);
+            actualizaListado();
+
+        };
+
+        function actualizaListado(){
+
+            let lista = document.getElementById('listado');
+
+            lista.innerHTML = "";
+
+            for (let n = 0; n < listaCompra.length; n++) {
+                let li = document.createElement("li");
+                li.textContent = listaCompra[n];
+                lista.appendChild(li);
+            };
+
+        };
+
+
+    </script>
+
+</body>
+</html>

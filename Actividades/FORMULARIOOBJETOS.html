@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+</head>
+<body>
+    <h1>DATOS PERSONAS</h1>
+    <form id="datosper">
+
+        <!--
+            Mediante la propiedad value="" en los inputs puedo establecer un valor fijo
+            para que sea recogido con javascript.
+
+            Puedo dejar sin posibilidad de foco a los inputs añadiendo disabled al final de la etiqueta
+
+            Si quiero que el input no se vea en pantalla pero que se pueda manipular con JS, utilizaré
+            la propiedad style="display:none;"        
+        -->
+
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label>Ciudad:</label><br>
+        <input type="text" id="ciudad" name="ciudad"><br><br>        
+        <label>Edad:</label><br>
+        <input type="number" id="edad" name="edad"><br><br>
+        
+        <button type="button" onclick="añadirPersona()">INSERTAR</button>
+
+    </form>
+
+    <h2>PERSONAS INSERTADAS</h2>
+    <div id="datos"></div>
+
+    <script>
+
+        // Array para los objetos persona
+        let datosPersonas = [];
+
+        function añadirPersona(){
+
+            // Recoger datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const edad = document.getElementById('edad').value;
+
+            // Creamos el objeto para insertarlo en el ARRAY
+            const nuevaPersona = {
+                nombre: nombre,
+                ciudad: ciudad,
+                edad: edad
+            };
+
+            // Insertar el objeto persona en array de Personas
+            datosPersonas.push(nuevaPersona);
+
+            // Limpiar datos del formulario
+            document.getElementById('datosper').reset();
+
+            mostrarPersonas();
+
+        };
+
+        function mostrarPersonas(){
+
+            const contenedor = document.getElementById('datos');
+            contenedor.innerHTML = ""; // Limpiar lo que tenga anteriormente
+
+            datosPersonas.forEach((dato,index)=>{
+                // Creamos un contendor div para albergar las demás etiquetas donde
+                // interpolaremos los datos que el bucle forEach pasa mediante la función Arrow
+                const divmuestra = document.createElement('div');
+                divmuestra.innerHTML = `
+                    <h2>Código: ${index+1}</h2>
+                    <p>Nombre: ${dato.nombre}</p>
+                    <p>Ciudad: ${dato.ciudad}</p>
+                    <p>Edad: ${dato.edad}</p>
+                `;
+                datos.appendChild(divmuestra);
+            });
+
+        };
+
+    </script>
+    
+</body>
+</html>

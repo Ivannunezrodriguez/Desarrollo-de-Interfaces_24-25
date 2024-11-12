@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table,
+      th,
+      tr,
+      td {
+        border: 1px solid black;
+        text-align: center;
+        border-collapse: collapse;
+        width: 300px;
+      }
+    </style>
+    <title>JAVASCRIPT II</title>
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Puesto</th>
+          <th>Salario</th>
+        </tr>
+      </thead>
+      <tbody id="salida">
+        <!-- Aquí se insertarán las filas generadas por JavaScript -->
+      </tbody>
+    </table>
+    <p id="sal2"></p>
+    <p id="salida3"></p>
+    <p id="contador"></p>
+    <button onclick="listar()">Listar Empleados</button>
+    <button onclick="arrays()">Mostrar Frutas</button>
+    <button onclick="suma()">Suma Salario</button>
+    <button onclick="increcontador()">Incremetar</button>
+    <script>
+      let persona = {
+        nombre: "pedro lopez",
+        telf: "6543352",
+        edad: 30,
+        cp: "45005",
+      };
+      let empleados = [
+        { nombre: "luis", puesto: "administrativo", salario: 25000 },
+        { nombre: "juan", puesto: "secretara", salario: 10000 },
+        { nombre: "ana", puesto: "director", salario: 50000 },
+      ];
+
+      document.getElementById("sal2").innerHTML = empleados[0].nombre;
+      let numero = 0;
+      function listar() {
+        let listarEmpleados = "";
+        for (let i = 0; i < empleados.length; i++) {
+          listarEmpleados +=
+            "<tr><td>" +
+            empleados[i].nombre +
+            "</td><td>" +
+            empleados[i].puesto +
+            "</td><td>" +
+            empleados[i].salario +
+            "€</td></tr>";
+        }
+
+        document.getElementById("salida").innerHTML = listarEmpleados;
+        suma();
+        recursiva();
+      }
+      function suma() {
+        let suma = 0;
+        for (let i = 0; i < empleados.length; i++) {
+          suma += empleados[i].salario;
+        }
+        document.getElementById("sal2").innerHTML =
+          "la suma de todos los salarios es: " + suma;
+      }
+
+      //document.getElementById("sal2").innerHTML=persona.nombre+" "+persona.edad+" "+persona.telf+"y su codigo postal es "+persona.cp;
+      // document.getElementById("salida").innerHTML=persona.nombre.toLocaleUpperCase().split(" ");//separa po palabra entre comas
+
+      function recursiva() {
+        numero++;
+        document.getElementById("salida3").innerHTML =
+          "se ha repetido recargado :" + numero + "veces";
+      }
+      function anadircontador() {
+        let cont = 0;
+        return function () {
+          cont++;
+          document.getElementById("contador").innerHTML = "Contador " + cont;
+        };
+      }
+      let increcontador = anadircontador();
+
+      function arrays() {
+        let frutas = ["peras", "limones", "platanos"];
+        document.getElementById("salida").innerHTML =
+          "Lista: " + frutas.join(", ");
+        frutas.push("melon");
+        document.getElementById("sal2").innerHTML =
+          "elemento del array es: " + frutas[1];
+      }
+
+      /* console.log(frutas);
+           frutas.reverse();//invierte nombre
+           frutas.pop();//quita el ultimo en introducir
+      
+           console.log(frutas);*/
+    </script>
+  </body>
+</html>

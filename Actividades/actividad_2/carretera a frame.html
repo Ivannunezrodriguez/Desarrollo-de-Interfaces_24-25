@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-plane position="0 -1 0" rotation="-90 0 0" width="20" height="200" color="black">
+
+        </a-plane>
+        <a-plane position="0 -0.9 0" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 20" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 -20" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 40" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 -40" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 -60" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 60" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 -80" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="0 -0.9 80" rotation="-90 0 0" width="2" height="12">
+
+        </a-plane>
+        <a-plane position="10 -0.9 0" rotation="-90 0 0" width="6" height="200" color="gray">
+
+        </a-plane>
+        <a-plane position="-10 -0.9 0" rotation="-90 0 0" width="3" height="200" color="gray">
+
+        </a-plane>
+
+        <a-sky color="skyblue">
+
+        </a-sky>
+
+        <a-camera>
+            <a-cursor color="yellow"></a-cursor>
+        </a-camera>
+        <a-entity
+            gltf-model="#carModel"
+            position="6.20 -0.8 -5"
+            scale="0.02 0.02 0.02"
+            rotation="0 270 0">
+        </a-entity>
+    </a-scene>
+    <a-assets>
+        <a-asset-item id="carModel" src="car_scene.glb"></a-asset-item>
+    </a-assets>
+</body>
+</html>

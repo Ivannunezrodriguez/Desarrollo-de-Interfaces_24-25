@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esceba interactiva con a frame</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script>
+       AFRAME.registerComponents('cambiar-color', {init:function (){
+        this.el.addEventListener('clikc', function (evt) {
+        const colores=['red','green','blue','yellow','purple'];
+        const nuevoColor=colores[Math.floor(Math.random() * cores.length)];
+        this.setAttribute('color',nuevoColor);
+        });
+        }
+        });
+        AFRAME.registerComponent('escalar',{
+            init: function () {
+                this.el.addEventListener('clikc', function (evt) {
+                    this.setAttribute('scale','2 2 2');
+                });
+                            }
+        });
+        AFRAME.registerComponent('abrir-url',{
+            init: function () {
+                this.el.addEventListener('clikc', function (evt) {
+                    window.open('https://www.google.com', '_blank');});
+                }
+            });
+
+    </script>
+</head>
+<body>
+<a-scene>
+    <a-cylinder position="-3 0  -3" rotation="0 0 0 " width="4" height="4" color="blue"></a-cylinder>
+    <a-cone position="3 0 0 " rotation="0 0 0 " width="4" height="4" color="green"></a-cone>
+    <a-sphere position="0 0 3" rotation="0 0 0 " width="4" height="4" color="red"></a-sphere>
+</a-scene>
+</body>
+</html>

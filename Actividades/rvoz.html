@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Reconocimiento de Voz</title>
 </head>
-<body>
+<body id="body">
 <h1>RECONOCIMIENTO DE VOZ JAVASCRIPT</h1>
 <button id="iniciar">Iniciar</button>
 <button id="parar">Parar</button>
 <div id="mensaje"></div>
+<div id="salida"  style="width: 300 px; height: 300px ; margin: 3px;"></div>
 <script>
     const iniciar = document.getElementById("iniciar");
     const parar = document.getElementById("parar");
@@ -41,7 +42,27 @@
                 window.open("https://www.google.com", "_blank");
             }
       
+if (mensajeFinal=="cuadro"){
+    const contenedor=document.getElementById('salida');
+    const cuadrosalida=document.createElement('h1');
+    cuadrosalida.innerHTML="estoy aqui";
+    cuadrosalida.style.backgroundColor="red";
+    cuadrosalida.style.width="450px";
+    cuadrosalida.style.height="450px";
+    cuadrosalida.style.textAlign="center";
+    cuadrosalida.style.alignContent="center"
+    cuadrosalida.style.margin="auto";
+    cuadrosalida.style.color="white";
+        contenedor.appendChild(cuadrosalida);
 
+
+    
+}
+if(mensajeFinal==="alarma"){
+    const fondo=document.getElementById('body');
+    fondo.innerHTML.backgroundColor=blue;
+  
+}
         };
 
         recognition.onerror = function (event) {

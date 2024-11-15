@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Reconocimiento de Voz</title>
+</head>
+<body>
+<h1>RECONOCIMIENTO DE VOZ JAVASCRIPT</h1>
+<button id="iniciar">Iniciar</button>
+<button id="parar">Parar</button>
+<div id="mensaje"></div>
+<script>
+    const iniciar = document.getElementById("iniciar");
+    const parar = document.getElementById("parar");
+    const mensaje = document.getElementById("mensaje");
+
+    // Verifica si el navegador soporta reconocimiento de voz
+    if ('webkitSpeechRecognition' in window) {
+
+        const recognition = new webkitSpeechRecognition();
+        recognition.continuous = true; // Reconocimiento continuo
+        recognition.interimResults = true; // Resultados provisionales
+
+        recognition.onstart = function () {
+            mensaje.textContent = "Escuchando...";
+        };
+
+        recognition.onresult = function (event) {
+            let mensajeFinal = "";
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    mensajeFinal += event.results[i][0].transcript;
+                } else {
+                    mensajeFinal += event.results[i][0].transcript + ' ';
+                }
+            }
+            // Asigna el texto reconocido al elemento mensaje
+            mensaje.textContent = mensajeFinal;
+            if (mensajeFinal==="alerta"){
+                window.open("https://www.google.com", "_blank");
+            }
+      
+
+        };
+
+        recognition.onerror = function (event) {
+            mensaje.textContent = "Error: " + event.error;
+        };
+
+        iniciar.onclick = function () {
+            recognition.start();
+        };
+
+        parar.onclick = function () {
+            recognition.stop();
+            mensaje.textContent = "Reconocimiento de voz parado";
+        };
+    } else {
+        mensaje.textContent = "Este navegador no soporta reconocimiento de voz.";
+    }
+</script>
+</body>
+</html>

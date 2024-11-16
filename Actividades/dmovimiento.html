@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Movimiento</title>
+</head>
+<body>
+    <h1>Detección de Movimiento</h1>
+    <video id="video" width="700px" height="500px" autoplay></video>
+    <canvas id="canvas" width="700px" height="500px" style="border: 1px solid black;"></canvas>
+    <div id="estado"></div>
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const detencion = document.getElementById('estado');
+        let anteriorFrame = null;
+
+        // Activar la cámara
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                video.srcObject = stream;
+            })
+            .catch(function (error) {
+                console.error("Error al activar la cámara:", error);
+            });
+
+        // Detección de movimiento
+        function detencionMovimiento() {
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const frameActual = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+            if (anteriorFrame) {
+                let diferencia = 0;
+                for (let i = 0; i < frameActual.data.length; i += 4) {
+                    diferencia += Math.abs(frameActual.data[i] - anteriorFrame.data[i]);
+                    diferencia += Math.abs(frameActual.data[i + 1] - anteriorFrame.data[i + 1]);
+                    diferencia += Math.abs(frameActual.data[i + 2] - anteriorFrame.data[i + 2]);
+                }
+
+                console.log("Diferencia:", diferencia);
+
+                // Umbral para determinar movimiento
+                if (diferencia >3000000) { // Ajusta este valor
+                    detencion.innerHTML = "<h2>¡Movimiento detectado!</h2>";
+                } else {
+                    detencion.innerHTML = "<h2>No se detecta movimiento</h2>";
+                }
+            }
+
+            anteriorFrame = frameActual; // Actualiza el frame anterior
+            requestAnimationFrame(detencionMovimiento); // Llama a la siguiente iteración
+        }
+
+        // Comenzar la detección al reproducir el video
+        video.addEventListener('play', function () {
+            detencionMovimiento();
+        });
+    </script>
+</body>
+</html>

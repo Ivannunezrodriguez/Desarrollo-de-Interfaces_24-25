@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS I</title>
+</head>
+<body>
+
+    <canvas id="juego" width="500" height="400" style="border: 1px solid red"></canvas>
+
+    <script>
+
+        let canvas = document.getElementById("juego");
+        let ctx = canvas.getContext("2d");
+
+        let a = 400;
+        let b = 100;
+
+        let x = 25;
+        let y = 25;
+        let mx = 4;
+        let my = 4;
+
+        function rebotecuadro() {
+
+            // Borrar canvas
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+
+            // Dibujar cuadro
+            ctx.fillStyle = "blue";
+            ctx.fillRect(x,y,25,25);
+
+            // Dibujar circulo
+            ctx.beginPath();
+            ctx.arc(a,b,25,0,2*Math.PI);
+            ctx.fillStyle = "red";
+            ctx.fill();
+
+            // Mover cuadro
+            x += mx;
+            y += my;
+
+            // Crear rebotes
+            if (x + 25 > canvas.width || x < 0){
+                mx = -mx;
+            };
+
+            if (y + 25 > canvas.height || y< 0) {
+                my = -my;                
+            };
+
+            requestAnimationFrame(rebotecuadro);
+
+        }
+
+
+        rebotecuadro();
+
+        
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        input {
+            width: 100%;
+            border: none;
+        }
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-12 bg-info text-center fs-2">TIENDA ONLINE</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre1" value="PRODUCTO 1" disabled>
+                        <input type="number" id="precio1" value="21.50" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad1" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('1')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre2" value="PRODUCTO 2" disabled>
+                        <input type="number" id="precio2" value="14.50" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad2" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('2')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre3" value="PRODUCTO 3" disabled>
+                        <input type="number" id="precio3" value="10.20" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad3" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('3')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre4" value="PRODUCTO 4" disabled>
+                        <input type="number" id="precio4" value="11.50" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad4" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('4')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre5" value="PRODUCTO 5" disabled>
+                        <input type="number" id="precio5" value="26.50" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad5" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('5')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+                <div class="card col-lg-4">
+                    <img class="car-img-top" style="height: 200px;" src="https://res.cloudinary.com/dbzd8t9oy/image/upload/v1732082457/Tarea%20Desarrollo%20interfaces/image_bpz4lp.jpg">
+                    <div class="card-body">
+                        <input type="text" id="nombre6" value="PRODUCTO 6" disabled>
+                        <input type="number" id="precio6" value="21.50" min="1" step="0.1" disabled>
+                        <input type="number" id="cantidad6" min="1" value="1" step="1">
+                        <button onclick="insertarProduc('6')" class="btn btn-primary">AÑADIR AL CARRITO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <h4 class="bg-primary text-center">CARRITO</h4>
+            <div id="carro">
+
+            </div>
+            <h4 class="bg-info" id="total">TOTAL -</h4>
+            <button onclick="comprar()" type="button" class="btn btn-primary">COMPRAR</button>
+            <button onclick="borrar()" type="button" class="btn btn-warning">ELIMINAR PRODUCTO</button>
+        </div>
+    </div>
+    <script>
+        let carrito = [];
+        let sumaTotal = 0;
+        let cantidadPro = 0;
+
+        function insertarProduc(codigo) {
+
+            const nom = document.getElementById("nombre"+codigo).value;
+            const pre = parseFloat(document.getElementById("precio"+codigo).value);
+            let cant = parseInt(document.getElementById("cantidad"+codigo).value);
+
+            const producto = {
+                nombre: nom,
+                precio: pre,
+                cantidad: cant
+            };
+
+            if (cant<=0){
+                cant += 1;
+            };
+
+            const productoInsertado = carrito.find(pro => pro.nombre === producto.nombre);
+
+            if(productoInsertado){
+                productoInsertado.cantidad += cant;
+                document.getElementById("carro").innerHTML = "";
+            } else {
+                carrito.push(producto);
+                document.getElementById("carro").innerHTML = "";
+            };
+
+           mostrarCarrito();
+
+        }
+
+        function mostrarCarrito(){
+
+            carrito.forEach(prod => {
+                document.getElementById("carro").innerHTML += "<h4>" + prod.nombre + " - " + prod.cantidad + " unid. " + (prod.cantidad * prod.precio).toFixed(2) + " € </h4>";
+            });
+            totalCarrito();
+
+        };
+
+        function totalCarrito(){
+
+            sumaTotal = 0;
+            cantidadPro = 0;
+
+            carrito.forEach(elementoCarro => {
+                sumaTotal += (elementoCarro.cantidad * elementoCarro.precio);
+                cantidadPro += elementoCarro.cantidad;
+            });
+
+            document.getElementById("total").innerHTML = "TOTAL - " + sumaTotal.toFixed(2) + " €";
+        };
+
+        function comprar(){
+            alert("El importe de la compra realizada es: " + sumaTotal.toFixed(2) + " € por " + cantidadPro + " productos");
+        };
+
+        function borrar() {
+
+            carrito.pop();
+            document.getElementById("carro").innerHTML = "";
+            mostrarCarrito();
+
+        }
+
+    </script>
+</body>
+</html>

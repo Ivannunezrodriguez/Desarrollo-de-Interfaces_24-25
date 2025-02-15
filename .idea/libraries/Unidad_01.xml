@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Unidad_01">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Unidad_01/webbootstrap.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Unidad_01/JAVASCRIPT-APUNTES.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,12 @@
+, , NIF , NAF 
+Salario Anual: , Pagas: , IRPF: , Seguridad Social: 
+
+ivana, eieir, NIF fff, NAF ggg
+Salario Anual: sss, Pagas: sa, IRPF: tt, Seguridad Social: dft
+
+
+
+NIF      NAF      CCC 
+CONCEPTOS SALARIALES ----------------------------------------
+SALARIO ANUAL:     PAGAS:     IRPF:     SEGURIDAD SOCIAL: 
+

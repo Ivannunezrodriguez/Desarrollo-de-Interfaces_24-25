@@ -217,7 +217,7 @@ ventana_principal.geometry("600x350")
 
 titulo = tk.Label(ventana_principal, text="PERSONAL +", font=("Arial", 14, "bold"))
 titulo.pack(pady=5)
-imagen = tk.PhotoImage(file="D:/drive ivan/Curso DAM daw/UNIR/2_curso/Desarrollo de interfaces/Actividades/tkinter/seta.png")
+imagen = tk.PhotoImage(file="seta.png")
 
 logo = tk.Label(ventana_principal, image=imagen)
 logo.pack(pady=10)

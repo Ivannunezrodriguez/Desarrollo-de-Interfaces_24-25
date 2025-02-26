@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module mis_funciones</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">mis_funciones</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:d%3A%5Cdrive%20ivan%5Ccurso%20dam%20daw%5Cunir%5C2_curso%5Cdesarrollo%20de%20interfaces%5Cactividades%5Cactividad%204%5Cmis_funciones.py">d:\drive ivan\curso dam daw\unir\2_curso\desarrollo de interfaces\actividades\actividad 4\mis_funciones.py</a></td></tr></table>
+    <p><span class="code">Módulo&nbsp;mis_funciones<br>
+--------------------<br>
+&nbsp;<br>
+Este&nbsp;módulo&nbsp;contiene&nbsp;dos&nbsp;funciones&nbsp;de&nbsp;ejemplo:<br>
+1.&nbsp;`calculadora`:&nbsp;realiza&nbsp;operaciones&nbsp;básicas&nbsp;(suma,&nbsp;resta,&nbsp;multiplicación&nbsp;y&nbsp;división).<br>
+2.&nbsp;`fibonacci`:&nbsp;calcula&nbsp;el&nbsp;término&nbsp;n&nbsp;de&nbsp;la&nbsp;sucesión&nbsp;de&nbsp;Fibonacci&nbsp;de&nbsp;manera&nbsp;recursiva.<br>
+&nbsp;<br>
+Las&nbsp;pruebas&nbsp;unitarias&nbsp;de&nbsp;tipo&nbsp;doctest&nbsp;también&nbsp;se&nbsp;incluyen&nbsp;en&nbsp;los&nbsp;docstrings&nbsp;de&nbsp;cada&nbsp;función.</span></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-calculadora"><strong>calculadora</strong></a>(a, b, operacion)</dt><dd><span class="code">Realiza&nbsp;una&nbsp;operación&nbsp;aritmética&nbsp;básica&nbsp;(suma,&nbsp;resta,&nbsp;multiplicación,&nbsp;división)<br>
+sobre&nbsp;dos&nbsp;números.<br>
+&nbsp;<br>
+Parámetros<br>
+----------<br>
+a&nbsp;:&nbsp;float&nbsp;o&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Primer&nbsp;número.<br>
+b&nbsp;:&nbsp;float&nbsp;o&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Segundo&nbsp;número.<br>
+operacion&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tipo&nbsp;de&nbsp;operación&nbsp;a&nbsp;realizar.&nbsp;Debe&nbsp;ser&nbsp;uno&nbsp;de&nbsp;los&nbsp;siguientes&nbsp;valores:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"suma",&nbsp;"resta",&nbsp;"multiplicacion"&nbsp;o&nbsp;"division".<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;El&nbsp;resultado&nbsp;de&nbsp;la&nbsp;operación&nbsp;realizada.<br>
+&nbsp;<br>
+Raises<br>
+------<br>
+ValueError<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Si&nbsp;la&nbsp;operación&nbsp;no&nbsp;está&nbsp;entre&nbsp;las&nbsp;válidas.<br>
+ZeroDivisionError<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Si&nbsp;se&nbsp;intenta&nbsp;realizar&nbsp;una&nbsp;división&nbsp;por&nbsp;cero.<br>
+&nbsp;<br>
+Ejemplos<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;<a href="#-calculadora">calculadora</a>(10,&nbsp;5,&nbsp;"suma")<br>
+15<br>
+&gt;&gt;&gt;&nbsp;<a href="#-calculadora">calculadora</a>(10,&nbsp;5,&nbsp;"resta")<br>
+5<br>
+&gt;&gt;&gt;&nbsp;<a href="#-calculadora">calculadora</a>(3,&nbsp;4,&nbsp;"multiplicacion")<br>
+12<br>
+&gt;&gt;&gt;&nbsp;<a href="#-calculadora">calculadora</a>(10,&nbsp;2,&nbsp;"division")<br>
+5.0<br>
+&gt;&gt;&gt;&nbsp;<a href="#-calculadora">calculadora</a>(10,&nbsp;0,&nbsp;"division")&nbsp;&nbsp;#&nbsp;Test&nbsp;para&nbsp;la&nbsp;excepción&nbsp;de&nbsp;división&nbsp;por&nbsp;cero<br>
+Traceback&nbsp;(most&nbsp;recent&nbsp;call&nbsp;last):<br>
+...<br>
+ZeroDivisionError:&nbsp;division&nbsp;by&nbsp;zero</span></dd></dl>
+ <dl><dt><a name="-fibonacci"><strong>fibonacci</strong></a>(n)</dt><dd><span class="code">Devuelve&nbsp;el&nbsp;término&nbsp;n&nbsp;de&nbsp;la&nbsp;sucesión&nbsp;de&nbsp;Fibonacci&nbsp;de&nbsp;forma&nbsp;recursiva.<br>
+&nbsp;<br>
+La&nbsp;sucesión&nbsp;de&nbsp;Fibonacci&nbsp;se&nbsp;define&nbsp;como:<br>
+-&nbsp;<a href="#-fibonacci">fibonacci</a>(0)&nbsp;=&nbsp;0<br>
+-&nbsp;<a href="#-fibonacci">fibonacci</a>(1)&nbsp;=&nbsp;1<br>
+-&nbsp;<a href="#-fibonacci">fibonacci</a>(n)&nbsp;=&nbsp;<a href="#-fibonacci">fibonacci</a>(n-1)&nbsp;+&nbsp;<a href="#-fibonacci">fibonacci</a>(n-2)&nbsp;para&nbsp;n&nbsp;&gt;&nbsp;1<br>
+&nbsp;<br>
+Parámetros<br>
+----------<br>
+n&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;El&nbsp;índice&nbsp;del&nbsp;término&nbsp;de&nbsp;Fibonacci&nbsp;que&nbsp;se&nbsp;desea&nbsp;obtener.&nbsp;Debe&nbsp;ser&nbsp;un&nbsp;entero&nbsp;&gt;=&nbsp;0.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;El&nbsp;término&nbsp;n&nbsp;de&nbsp;la&nbsp;sucesión&nbsp;de&nbsp;Fibonacci.<br>
+&nbsp;<br>
+Raises<br>
+------<br>
+ValueError<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Si&nbsp;n&nbsp;es&nbsp;un&nbsp;entero&nbsp;negativo.<br>
+&nbsp;<br>
+Ejemplos<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;<a href="#-fibonacci">fibonacci</a>(0)<br>
+0<br>
+&gt;&gt;&gt;&nbsp;<a href="#-fibonacci">fibonacci</a>(1)<br>
+1<br>
+&gt;&gt;&gt;&nbsp;<a href="#-fibonacci">fibonacci</a>(5)<br>
+5<br>
+&gt;&gt;&gt;&nbsp;<a href="#-fibonacci">fibonacci</a>(10)<br>
+55<br>
+&gt;&gt;&gt;&nbsp;<a href="#-fibonacci">fibonacci</a>(-1)<br>
+Traceback&nbsp;(most&nbsp;recent&nbsp;call&nbsp;last):<br>
+...<br>
+ValueError:&nbsp;El&nbsp;valor&nbsp;de&nbsp;n&nbsp;no&nbsp;puede&nbsp;ser&nbsp;negativo.</span></dd></dl>
+</td></tr></table>
+</body></html>

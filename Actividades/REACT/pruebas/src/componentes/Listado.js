@@ -1,12 +1,18 @@
 import React from "react";
 
 function Listado({ elementos }) {
-    return (
-        <ul>
-            {elementos.map((elemento) => (
-                <li key={elemento.id}>{elemento.titulo}</li>
-            ))}
-        </ul>
-    );
+  return (
+    <ul>
+      <hr></hr>
+      {elementos.map((elemento) => (
+        <p
+          style={{ background: "grey", color: "white", fontWeight: "bold" }}
+          key={elemento.id}>
+          {elemento.id} - {elemento.titulo}
+        </p>
+      ))}
+      <hr></hr>
+    </ul>
+  );
 }
 export default Listado;

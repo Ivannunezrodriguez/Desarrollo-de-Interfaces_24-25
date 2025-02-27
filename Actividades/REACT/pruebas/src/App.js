@@ -11,7 +11,7 @@ function App() {
     { id: 4, titulo: "Otoño" },
   ];
   return (
-    <Container>
+    <Container> 
       <div className="App">
         <h1>Lista de elementos anuales</h1>
         <Listado elementos={elementos} />

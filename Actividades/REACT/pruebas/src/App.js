@@ -1,9 +1,11 @@
 import React from "react";
-import Listado from "./componentes/listado";
+import Header from "./componentes/header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container } from "react-bootstrap";
+import Listado from "./componentes/listado";
+import Leerjson from "./componentes/leerjson";
 
 function App() {
+  /**
   const elementos = [
     { id: 1, titulo: "Invierno" },
     { id: 2, titulo: "Primavera" },
@@ -22,6 +24,15 @@ function App() {
       </div>
       <Button variant="primary">enviar</Button>
     </Container>
+  );*/
+
+return (
+    <div>
+      <Header></Header>
+      <Leerjson></Leerjson>
+    </div>
   );
+
+
 }
 export default App;
